@@ -5,7 +5,8 @@ const FeedbackForm = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        feedback: ''
+        feedback: '',
+        rating: ''
     });
 
     const handleChange = (e) => {
@@ -21,6 +22,7 @@ const FeedbackForm = () => {
         const confirmationMessage = `
             Name: ${formData.name} 
             Email: ${formData.email} 
+            Rating: ${formData.rating}
             Feedback: ${formData.feedback}
         `;
         const isConfirmed = window.confirm(`Please confirm your details: \n\n${confirmationMessage}`);
@@ -29,6 +31,7 @@ const FeedbackForm = () => {
             setFormData({
                 name: '',
                 email: '',
+                rating: '',
                 feedback: ''
             });
             alert('Thank you for your valuable feedback!');
@@ -57,6 +60,39 @@ const FeedbackForm = () => {
             value={formData.email} 
             onChange={handleChange}
         />
+        <div style={{display: "flex", gap: "10px", flexDirection: "column"}}>
+            <span>Rate Us:</span>
+            <p><input 
+                type="radio" 
+                name="rating" 
+                value="1" 
+                onChange={handleChange}
+            /> 1</p>
+            <p><input 
+                type="radio" 
+                name="rating"
+                value="2"
+                onChange={handleChange}
+            /> 2</p>
+            <p><input 
+                type="radio" 
+                name="rating" 
+                value="3" 
+                onChange={handleChange}
+            /> 3</p>
+            <p><input 
+                type="radio" 
+                name="rating" 
+                value="4" 
+                onChange={handleChange}
+            /> 4</p>
+            <p><input 
+                type="radio" 
+                name="rating" 
+                value="5" 
+                onChange={handleChange}
+            /> 5</p>
+        </div>
         <textarea 
             name='feedback' 
             placeholder='Your Feedback' 
